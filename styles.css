@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #2b0000, #090909 60%);
+  color: white;
+  min-height: 100vh;
+}
+
+.app {
+  width: 92%;
+  max-width: 760px;
+  margin: auto;
+  padding: 35px 0;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #ff2d2d;
+  font-size: 44px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #ccc;
+}
+
+.level-card,
+.stats-card,
+.metronome-card,
+.lesson-card {
+  background: rgba(25, 25, 25, 0.95);
+  border: 1px solid rgba(255, 45, 45, 0.25);
+  border-radius: 22px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
+}
+
+.level-card h2,
+.stats-card h2,
+.lesson-card h2 {
+  color: #ff4a4a;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #333;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 18px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #ff2d2d;
+  transition: 0.3s ease;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.stat-box {
+  background: #101010;
+  border: 1px solid rgba(255, 45, 45, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.stat-box strong {
+  display: block;
+  color: #ffb3b3;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.stat-box span {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.goal-box {
+  background: #101010;
+  border-left: 4px solid #ff2d2d;
+  border-radius: 12px;
+  padding: 14px;
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+#goalMessage {
+  color: #f1f1f1;
+  margin-bottom: 0;
+}
+
+.beat-display {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #333;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: bold;
+  transition: 0.12s ease;
+}
+
+.beat-display.strong {
+  background: #ff2d2d;
+  transform: scale(1.15);
+  box-shadow: 0 0 35px rgba(255, 45, 45, 0.9);
+}
+
+.beat-display.weak {
+  background: #555;
+  transform: scale(1.05);
+}
+
+#beatText {
+  text-align: center;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.control-group,
+.grouping-container {
+  margin: 22px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+}
+
+#bpmValue {
+  display: block;
+  margin-top: 8px;
+  color: #ffb3b3;
+  font-weight: bold;
+}
+
+.beat-circles {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+
+.circle {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #555;
+  transition: 0.1s;
+}
+
+.circle.accent {
+  background: #8b0000;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.circle.current.accent {
+  background: #ff2d2d;
+  transform: scale(1.45);
+  box-shadow: 0 0 22px #ff2d2d;
+}
+
+.circle.current:not(.accent) {
+  background: #bbbbbb;
+  transform: scale(1.25);
+  box-shadow: 0 0 14px #bbbbbb;
+}
+
+.subdivision-box,
+.practice-box,
+.figure-box {
+  background: #101010;
+  border: 1px solid rgba(255, 45, 45, 0.35);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 18px 0;
+  text-align: center;
+}
+
+#subdivisionText {
+  color: #ffb3b3;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#practiceStep,
+#figureDescription {
+  color: #f1f1f1;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.figure-pattern {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+
+.figure-hit,
+.figure-rest {
+  min-width: 42px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.figure-hit {
+  background: #ff2d2d;
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 45, 45, 0.5);
+}
+
+.figure-rest {
+  background: #222;
+  color: #999;
+  border: 1px dashed #666;
+}
+
+.practice-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.practice-buttons button {
+  font-size: 15px;
+  padding: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  background: #ff2d2d;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c91f1f;
+}
+
+#nextPracticeBtn {
+  background: #222;
+  border: 1px solid #ff2d2d;
+}
+
+#nextPracticeBtn:hover {
+  background: #3a0000;
+}
+
+#prevPracticeBtn,
+#resetProgressBtn {
+  background: #1a1a1a;
+  border: 1px solid #666;
+}
+
+#prevPracticeBtn:hover,
+#resetProgressBtn:hover {
+  background: #333;
+}
+
+#completeExerciseBtn {
+  margin-top: 12px;
+  background: #153b1a;
+  border: 1px solid #4caf50;
+}
+
+#completeExerciseBtn:hover {
+  background: #1f5c27;
+}
+
+.info-box {
+  background: #101010;
+  border-left: 4px solid #ff2d2d;
+  padding: 15px;
+  margin-top: 16px;
+  border-radius: 10px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.info-box p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 34px;
+  }
+
+  .beat-display {
+    width: 115px;
+    height: 115px;
+    font-size: 52px;
+  }
+
+  .level-card,
+  .stats-card,
+  .metronome-card,
+  .lesson-card {
+    padding: 20px;
+  }
+
+  .practice-buttons {
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

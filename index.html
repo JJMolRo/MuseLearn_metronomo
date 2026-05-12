@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MuseLearn - Metrónomo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>MuseLearn</h1>
+      <p>Metrónomo interactivo para aprender ritmo desde cero</p>
+    </header>
+
+    <section class="level-card">
+      <h2 id="levelTitle">Nivel actual</h2>
+      <p id="levelDescription"></p>
+
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <p id="progressText"></p>
+
+      <button id="completeLevelBtn" type="button">Completar nivel actual</button>
+    </section>
+
+    <section class="stats-card">
+      <h2>Estadísticas de práctica</h2>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <strong id="practiceTime">0:00</strong>
+          <span>Tiempo practicado</span>
+        </div>
+
+        <div class="stat-box">
+          <strong id="exerciseCount">0</strong>
+          <span>Ejercicios revisados</span>
+        </div>
+
+        <div class="stat-box">
+          <strong id="dailyGoalText">0%</strong>
+          <span>Meta diaria</span>
+        </div>
+
+        <div class="stat-box">
+          <strong id="achievedCount">0</strong>
+          <span>Ejercicios logrados</span>
+        </div>
+      </div>
+
+      <div class="goal-box">
+        <strong>Objetivo diario:</strong>
+        <p id="goalMessage">Practica 5 minutos o completa 5 ejercicios.</p>
+      </div>
+
+      <button id="resetProgressBtn" type="button">Reiniciar progreso</button>
+    </section>
+
+    <section class="metronome-card">
+      <div id="beatDisplay" class="beat-display">1</div>
+      <p id="beatText">Tiempo fuerte</p>
+
+      <div class="control-group">
+        <label for="bpm">Velocidad</label>
+        <input type="range" id="bpm" min="40" max="220" value="80" />
+        <span id="bpmValue">80 BPM</span>
+      </div>
+
+      <div class="control-group">
+        <label for="timeSignature">Compás</label>
+        <select id="timeSignature"></select>
+      </div>
+
+      <div id="beatCircles" class="beat-circles"></div>
+
+      <div id="groupingContainer" class="grouping-container">
+        <label for="groupingSelect">Agrupación rítmica / amalgama</label>
+        <select id="groupingSelect"></select>
+      </div>
+
+      <div class="control-group">
+        <label for="subdivisionSelect">Subdivisión</label>
+        <select id="subdivisionSelect">
+          <option value="1">Pulso</option>
+          <option value="2">Corcheas</option>
+          <option value="3">Tresillos</option>
+          <option value="4">Semicorcheas</option>
+        </select>
+      </div>
+
+      <div class="subdivision-box">
+        <strong>Sílaba rítmica:</strong>
+        <p id="subdivisionText">TA</p>
+      </div>
+
+      <div class="control-group">
+        <label for="soundModeSelect">Modo de sonido</label>
+        <select id="soundModeSelect">
+          <option value="both" selected>Metrónomo + figura musical</option>
+          <option value="metronome">Solo metrónomo</option>
+          <option value="figure">Solo figura musical</option>
+        </select>
+      </div>
+
+      <div class="figure-box">
+        <strong>Ejercicio con figura musical:</strong>
+
+        <div class="control-group">
+          <label for="difficultySelect">Dificultad</label>
+          <select id="difficultySelect">
+            <option value="basic">Básico</option>
+            <option value="intermediate">Intermedio</option>
+            <option value="advanced">Avanzado</option>
+            <option value="professional">Profesional</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="figureSelect">Figura musical</label>
+          <select id="figureSelect"></select>
+        </div>
+
+        <p id="figureDescription"></p>
+
+        <div class="figure-pattern" id="figurePattern"></div>
+
+        <div class="info-box">
+          <strong>Conteo:</strong>
+          <p id="figureCounting"></p>
+        </div>
+
+        <div class="info-box">
+          <strong>Ejercicio:</strong>
+          <p id="figureExercise"></p>
+        </div>
+      </div>
+
+      <div class="practice-box">
+        <strong>Modo práctica:</strong>
+        <p id="practiceStep">Escucha el compás completo sin tocar nada.</p>
+
+        <div class="practice-buttons">
+          <button id="prevPracticeBtn" type="button">Ejercicio anterior</button>
+          <button id="nextPracticeBtn" type="button">Siguiente ejercicio</button>
+        </div>
+
+        <button id="completeExerciseBtn" type="button">
+          Marcar ejercicio como logrado
+        </button>
+      </div>
+
+      <button id="startStopBtn" type="button">Iniciar</button>
+    </section>
+
+    <section class="lesson-card">
+      <h2 id="lessonTitle">Compás 4/4</h2>
+      <p id="lessonDescription"></p>
+
+      <div class="info-box">
+        <strong>Cómo contarlo:</strong>
+        <p id="countingText"></p>
+      </div>
+
+      <div class="info-box">
+        <strong>Ejercicio práctico:</strong>
+        <p id="exerciseText"></p>
+      </div>
+
+      <div class="info-box">
+        <strong>Nivel:</strong>
+        <p id="levelText"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
